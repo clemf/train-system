@@ -24,4 +24,13 @@ describe 'Station' do
       expect(test_station == test_station2).to eq true
     end
   end
+  describe ".find" do
+    it 'takes a station id and returns the object' do
+      test_station = Station.new({:name => 'Rose Quarter', :id => nil})
+      test_station.save
+      test_station2 = Station.new({:name => 'Pioneer Place', :id => nil})
+      test_station2.save
+      expect(Station.find(test_station.id)).to eq test_station
+    end
+  end
 end

@@ -25,4 +25,12 @@ class Station
   define_method :== do |station|
     name == station.name && id == station.id
   end
+
+  define_singleton_method :find do |station_id|
+    result = DB.exec("SELECT * FROM stations WHERE id = #{station_id};").first
+    id = result.fetch("id").to_i
+    name = result.fetch("name")
+    Station.new({:id => id, :name => name})
+  end
+
 end

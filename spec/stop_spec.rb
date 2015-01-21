@@ -7,7 +7,7 @@ describe 'Stop' do
       test_line.save
       test_station = Station.new({:name => 'Rose Quarter', :id => nil})
       test_station.save
-      test_stop = Stop.new({:line => test_line, :station => test_station})
+      test_stop = Stop.new({:line => test_line, :station => test_station, :id => nil})
       test_stop.save
       expect(Stop.all()).to(eq([test_stop]))
     end
@@ -19,13 +19,13 @@ describe 'Stop' do
       test_line.save
       test_station = Station.new({:name => 'Rose Quarter', :id => nil})
       test_station.save
-      test_stop = Stop.new({:line => test_line, :station => test_station})
+      test_stop = Stop.new({:line => test_line, :station => test_station, :id => nil})
       test_stop.save
       test_line2 = Line.new({:name => 'Green Line', :id => nil})
       test_line2.save
       test_station2 = Station.new({:name => 'Rose Quarter', :id => nil})
       test_station2.save
-      test_stop2 = Stop.new({:line => test_line, :station => test_station})
+      test_stop2 = Stop.new({:line => test_line, :station => test_station, :id => nil})
       test_stop2.save
       expect(Stop.all()).to(eq([test_stop, test_stop2]))
     end
@@ -37,9 +37,9 @@ describe 'Stop' do
       test_line.save
       test_station = Station.new({:name => 'Rose Quarter', :id => nil})
       test_station.save
-      test_stop = Stop.new({:line => test_line, :station => test_station})
+      test_stop = Stop.new({:line => test_line, :station => test_station, :id => nil})
       test_stop.save
-      test_stop2 = Stop.new({:line => test_line, :station => test_station})
+      test_stop2 = Stop.new({:line => test_line, :station => test_station, :id => nil})
       expect(test_stop == test_stop2).to eq true
     end
   end
