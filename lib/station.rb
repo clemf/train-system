@@ -18,8 +18,8 @@ class Station
   end
 
   define_method :save do
-    result = DB.exec("INSERT INTO stations (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first().fetch("id").to_i()
+    results_id = DB.exec("INSERT INTO stations (name) VALUES ('#{@name}') RETURNING id;")
+    @id = results_id.first().fetch("id").to_i()
   end
 
   define_method :== do |station|

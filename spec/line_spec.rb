@@ -24,26 +24,26 @@ describe 'Line' do
       expect(test_line == test_line2).to eq true
     end
   end
-  describe '#add_stop' do
-    it 'adds a stop to the line' do
-      test_line = Line.new({:name => 'Red Line', :id => nil})
-      test_line.save
-      test_station = Station.new({:name => 'Rose Quarter', :id => nil})
-      test_station.save
-      test_line.add_stop(test_station)
-      expect(test_line.list_stops).to eq [test_station]
-    end
-  end
-  describe '#list_stops' do
-    it 'lists all stops for the line' do
-      test_line = Line.new({:name => 'Red Line', :id => nil})
-      test_line.save
-      test_station = Station.new({:name => 'Rose Quarter', :id => nil})
-      test_station.save
-      test_station2 = Station.new({:name => 'Pioneer Place', :id => nil})
-      test_station2.save
-      test_line.add_stop(test_station)
-      expect(test_line.list_stops).to eq [test_station, test_station2]
-    end
-  end
+  # describe '#add_stop' do
+  #   it 'adds a stop to the line' do
+  #     test_line = Line.new({:name => 'Red Line', :id => nil})
+  #     test_line.save
+  #     test_station = Station.new({:name => 'Rose Quarter', :id => nil})
+  #     test_station.save
+  #     test_line.add_stop(test_station)
+  #     expect(test_line.list_stops).to eq [test_station]
+  #   end
+  # end
+  # describe '#list_stops' do
+  #   it 'lists all stops for the line' do
+  #     test_line = Line.new({:name => 'Red Line', :id => nil})
+  #     test_line.save
+  #     test_station = Station.new({:name => 'Rose Quarter', :id => nil})
+  #     test_station.save
+  #     test_station2 = Station.new({:name => 'Pioneer Place', :id => nil})
+  #     test_station2.save
+  #     test_line.add_stop(test_station)
+  #     expect(test_line.list_stops).to eq [test_station, test_station2]
+  #   end
+  # end
 end
