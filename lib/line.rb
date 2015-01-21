@@ -26,23 +26,11 @@ class Line
     name == line.name && id == line.id
   end
 
-  # define_method :add_stop do |station|
-  #   DB.exec("INSERT INTO stops (station_id, line_id) VALUES (#{station.id}, #{@id});")
-  # end
-  #
-  # define_method :list_stops do
-  #   stops = []
-  #   stop_results = DB.exec("SELECT * FROM stops WHERE line_id = #{@id};")
-  #   stop_results.each do |stop|
-  #     station_id = stop.fetch("station_id")
-  #     station_results = DB.exec("SELECT * FROM stations WHERE station_id = #{station_id}")
-  #     station_results.each do |station|
-  #       name = station.fetch("name")
-  #       id = station.fetch("id").to_i
-  #       stops.push(Station.new({:name => name, :id => id}))
-  #     end
-  #   end
-  #   stops
-  # end
+  define_singleton_method :find do |line_id|
+    result = DB.exec("SELECT * FROM lines WHERE id = #{line_id};").first
+    id = result.fetch("id").to_i
+    name = result.fetch("name")
+    Line.new({:id => id, :name => name})
+  end
 
 end

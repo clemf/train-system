@@ -32,5 +32,4 @@ class Station
     name = result.fetch("name")
     Station.new({:id => id, :name => name})
   end
-
 end
