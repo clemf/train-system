@@ -40,6 +40,7 @@ describe 'Stop' do
       test_stop = Stop.new({:line => test_line, :station => test_station, :id => nil})
       test_stop.save
       test_stop2 = Stop.new({:line => test_line, :station => test_station, :id => nil})
+      test_stop2.save
       expect(test_stop == test_stop2).to eq true
     end
   end
